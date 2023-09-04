@@ -23,24 +23,24 @@ import java.util.Objects;
 public class TXCosUtil {
 
     //存储服务域名
-    private static String Domain = "https://juntian-1317497766.cos.ap-chongqing.myqcloud.com";
+    private static String Domain = "#";
     //存储文件前缀
     private static String Prefix = "jt-helper";
 
     //账号appId
-    private static String AppId = "1317497766";
+    private static String AppId = "#";
 
     //SecretId
-    private static String SecretId = "AKIDWr33mHzYw76sQlspbBXfl2CdojPwIPL3";
+    private static String SecretId = "#";
 
     //SecretKey
-    private static String SecretKey = "YqsicJkARyJODqUt382kEVchcP2SjngM";
+    private static String SecretKey = "#";
 
     //存储桶名称
-    private static String BucketName = "juntian-1317497766";
+    private static String BucketName = "#";
 
     //区域名
-    private static String Region = "ap-chongqing";
+    private static String Region = "#";
 
     private static COSClient cosClient;
 
