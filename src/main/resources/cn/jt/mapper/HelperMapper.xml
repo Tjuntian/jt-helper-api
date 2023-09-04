@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jt.mapper.HelperMapper">
+
+    <select id="getByHelperId" resultType="cn.jt.entity.Label">
+        select *
+        from jt_label
+        where id in (SELECT label_id FROM label_helper WHERE helper_id =  #{helperId});
+    </select>
+    <select id="getPageByHelperId" resultType="cn.jt.entity.Helper">
+        select *
+        from jt_helper
+        <where>
+            <if test="labelId != null">
+                id in (select helper_id from label_helper where label_id = #{labelId})
+            </if>
+            <if test="data != null and data.notebook != null">
+                <bind name="data.notebook" value="'%' + data.notebook + '%'"/>
+                AND notebook LIKE #{data.notebook}
+            </if>
+            <if test="data != null and data.sign != null">
+                <bind name="data.sign" value="data.sign"/>
+                AND sign = #{data.sign}
+            </if>
+        </where>
+        LIMIT #{current}, #{size};
+    </select>
+</mapper>
